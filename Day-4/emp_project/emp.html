@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Management System</title>
+    <link rel="stylesheet" href="emp.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Employee Management System</h1>
+
+    <!-- Dashboard -->
+    <div class="stats">
+
+        <div class="card">
+            <h3>Total Employees</h3>
+            <p id="totalEmployees">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Total Salary</h3>
+            <p id="totalSalary">₹0</p>
+        </div>
+
+        <div class="card">
+            <h3>Departments</h3>
+            <p id="totalDepartments">0</p>
+        </div>
+
+    </div>
+
+    <!-- Form -->
+    <div class="form-section">
+
+        <input
+            type="text"
+            id="empName"
+            placeholder="Employee Name">
+
+        <input
+            type="number"
+            id="empAge"
+            placeholder="Age">
+
+        <select id="empDepartment">
+            <option value="">Select Department</option>
+            <option>HR</option>
+            <option>IT</option>
+            <option>Finance</option>
+            <option>Marketing</option>
+        </select>
+
+        <input
+            type="number"
+            id="empSalary"
+            placeholder="Salary">
+
+        <button onclick="addEmployee()">
+            Add Employee
+        </button>
+
+    </div>
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="search"
+                placeholder="🔍 Search Employee..."
+                onkeyup="searchEmployee()">
+
+        </div>
+
+        <div class="actions">
+
+            <button onclick="sortByName()">
+                Sort Name
+            </button>
+
+            <button onclick="sortBySalary()">
+                Sort Salary
+            </button>
+
+            <button onclick="toggleTheme()">
+                🌙 Theme
+            </button>
+
+            <button onclick="exportCSV()">
+                Export CSV
+            </button>
+
+            <select onchange="filterSalary(this.value)">
+                <option value="">All Salaries</option>
+                <option value="50000">Above 50K</option>
+                <option value="100000">Above 1 Lakh</option>
+            </select>
+
+        </div>
+
+    </div>
+
+    <!-- Table -->
+    <table>
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Department</th>
+                <th>Salary</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody id="employeeTable">
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<script src="emp.js"></script>
+
+</body>
+</html>
